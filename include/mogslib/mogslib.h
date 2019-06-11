@@ -3,9 +3,9 @@
 #include <tuple>
 #include <string>
 
-#include <abstractions/traits/charm_default.h>
+#include <abstractions/traits/charm_fast.h>
 
-namespace MOGSLib {  using Traits = CharmDefault;  }
+namespace MOGSLib {  using Traits = CharmFast;  }
 
 #include <abstractions/contexts/charm.h>
 
