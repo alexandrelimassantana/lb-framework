@@ -7,17 +7,17 @@
 
 namespace MOGSLib {  using Traits = LibgompDefault;  }
 
-#include <abstractions/contexts/libgomp.h>
+#include <abstractions/contexts/libgomp_multiloop.h>
 
-#include <model/schedulers/binlpt.h>
+#include <model/schedulers/buffered_binlpt.h>
 
 #include "macros.h"
 
 namespace MOGSLib {
 
 struct API {
-  using Contexts = std::tuple<Ctx(LibGOMP)>;
-  using Schedulers = std::tuple<Sched(BinLPT, 0)>;
+  using Contexts = std::tuple<Ctx(LibGOMPMultiloop)>;
+  using Schedulers = std::tuple<Sched(BufferedBinLPT, 0)>;
 
   static Contexts contexts;
   static Schedulers schedulers;
@@ -32,7 +32,7 @@ struct API {
   }
 
   inline static void work(const std::string &name) {
-    if(test_scheduler("binlpt", name))
+    if(test_scheduler("buffered_binlpt", name))
 			do_work<0>();
     else {
       throw std::string("[MOGSLib] Invalid scheduler name.");
