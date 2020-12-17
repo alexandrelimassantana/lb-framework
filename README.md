@@ -80,7 +80,7 @@ In this early development stage, the only way to integrate MOGSLib into OpenMP i
 
 ## Library Configurations
 
-1. Set the library RTS to OpenMP++ though the configure script. In order to set the library to work with OpenMP++ RTS using the greedy scheduler, for example, run the following command: `scripts/configure.sh -s greedy -a default -rts openmp`
+1. Set the library RTS to OpenMP++ though the configure script. In order to set the library to work with OpenMP++ RTS using the greedy scheduler, for example, run the following command: `scripts/configure.sh -traits libgomp_default -sched binlpt libgomp`
 
 ## OpenMP application Configurations
 
