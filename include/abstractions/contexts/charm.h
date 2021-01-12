@@ -29,20 +29,28 @@ protected:
 
 public:
 
+  /** Gets the schedule as a C pointer **/
   inline Id* scheduleRaw() {
     return _schedule.data();
   }
 
+  /** Gets the schedule as a C++ std::vector **/
   inline Schedule& schedule() {
     _schedule.resize(_input.ntasks());
     return _schedule;
   }
 
+  /** Gets the workload-aware scheduler policy input **/
   inline auto& input() {
     update_tasks();
     update_pus();
     return _input;
   }
+
+  inline auto nchunks() {
+    return _input.npus()*4;
+  }
+
 };
 
 }}
